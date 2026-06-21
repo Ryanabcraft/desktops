@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Desktop Apps — TikTok, ChatGPT, Claude e Gemini em janela limpa. Open source." />
-  <meta property="og:title" content="Desktop Apps" />
-  <meta property="og:description" content="4 apps desktop pra abrir TikTok, ChatGPT, Claude e Gemini sem abas de navegador." />
+  <meta name="description" content="Desktop Apps — 37 apps para abrir seus sites favoritos em janela limpa." />
+  <meta property="og:title" content="Desktop Apps (unoficial)" />
+  <meta property="og:description" content="37 apps desktop pra abrir seus sites favoritos sem abas de navegador." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://ryanabcraft.github.io/desktops/og-image.png" />
   <meta property="og:image:width" content="1200" />
@@ -13,114 +13,89 @@
   <title>Desktop Apps (unoficial)</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>" />
   <style>
-    :root {
-      --ink: #111315;
-      --muted: #5e646c;
-      --line: #d8dde3;
-      --paper: #f6f2e8;
-      --panel: #fffaf0;
-      --shadow: 0 8px 32px rgba(24, 27, 32, 0.12);
-    }
+    :root { --ink: #111315; --muted: #5e646c; --line: #d8dde3; --paper: #f6f2e8; --panel: #fffaf0; }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
       color: var(--ink);
-      background:
-        linear-gradient(90deg, rgba(20, 85, 217, 0.04) 1px, transparent 1px),
-        linear-gradient(rgba(20, 85, 217, 0.04) 1px, transparent 1px),
-        var(--paper);
+      background: linear-gradient(90deg, rgba(20, 85, 217, 0.04) 1px, transparent 1px),
+                  linear-gradient(rgba(20, 85, 217, 0.04) 1px, transparent 1px), var(--paper);
       background-size: 42px 42px;
       font-family: "Segoe UI", Candara, Calibri, sans-serif;
     }
     header {
       text-align: center;
-      padding: 64px 24px 40px;
+      padding: 48px 24px 32px;
       border-bottom: 1px solid var(--line);
       background: rgba(246, 242, 232, 0.88);
       backdrop-filter: blur(18px);
     }
     header h1 {
       font-family: Georgia, serif;
-      font-size: clamp(48px, 8vw, 96px);
+      font-size: clamp(36px, 6vw, 72px);
       line-height: 0.92;
-      margin-bottom: 12px;
+      margin-bottom: 8px;
     }
-    header p {
-      color: var(--muted);
-      font-size: clamp(16px, 2vw, 20px);
-      max-width: 560px;
-      margin: 0 auto;
+    header p { color: var(--muted); font-size: clamp(14px, 1.8vw, 18px); max-width: 600px; margin: 0 auto; }
+    header .stats { margin-top: 12px; font-size: 13px; color: var(--muted); }
+    .search-wrap { max-width: 400px; margin: 16px auto 0; }
+    .search-wrap input {
+      width: 100%; padding: 10px 14px; border: 1px solid var(--ink); border-radius: 6px;
+      font-size: 14px; background: white; color: var(--ink);
     }
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 24px;
-      max-width: 1280px;
-      margin: 40px auto;
-      padding: 0 24px;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 12px;
+      max-width: 1200px;
+      margin: 24px auto;
+      padding: 0 16px;
     }
     .card {
+      display: flex; flex-direction: column; align-items: center; text-align: center;
+      gap: 8px;
       border: 1px solid var(--ink);
       border-radius: 8px;
       background: var(--panel);
-      box-shadow: 6px 6px 0 var(--ink);
-      padding: 32px;
-      transition: transform 120ms ease, box-shadow 120ms ease;
-    }
-    .card:hover {
-      transform: translate(3px, 3px);
       box-shadow: 3px 3px 0 var(--ink);
-    }
-    .card-icon {
-      width: 56px; height: 56px;
-      border-radius: 14px;
-      display: flex; align-items: center; justify-content: center;
-      margin-bottom: 16px;
-    }
-    .card-icon img { width: 32px; height: 32px; object-fit: contain; }
-    .card h2 { font-family: Georgia, serif; font-size: 26px; margin-bottom: 8px; }
-    .card p { color: var(--muted); font-size: 15px; line-height: 1.5; margin-bottom: 16px; }
-    .card .version {
-      font-size: 13px;
-      color: var(--muted);
-      margin-bottom: 16px;
-    }
-    .card .version strong { color: var(--ink); }
-    .card-links { display: flex; flex-wrap: wrap; gap: 8px; }
-    .card-links a {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      padding: 6px 14px;
-      border: 1px solid var(--ink);
-      border-radius: 6px;
-      font-size: 13px;
-      font-weight: 700;
+      padding: 16px 12px;
       text-decoration: none;
       color: var(--ink);
-      background: white;
-      transition: background 80ms;
+      transition: transform 100ms ease, box-shadow 100ms ease;
     }
-    .card-links a:hover { background: #e8e4da; }
-    .card-links a.primary {
-      background: var(--ink);
-      color: white;
+    .card:hover {
+      transform: translate(2px, 2px);
+      box-shadow: 1px 1px 0 var(--ink);
     }
-    .card-links a.primary:hover { background: #2a2d32; }
-    .tiktok .card-icon { background: #fe2c55; }
-    .chatgpt .card-icon { background: #10a37f; }
-    .claude .card-icon { background: #c977d6; }
-    .gemini .card-icon { background: #000; }
+    .card-icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .card-icon img { width: 22px; height: 22px; object-fit: contain; }
+    .card-name { font-size: 13px; font-weight: 700; line-height: 1.2; }
+    .card-ver { font-size: 11px; color: var(--muted); }
     footer {
       text-align: center;
-      padding: 32px 24px;
+      padding: 24px;
       color: var(--muted);
-      font-size: 14px;
+      font-size: 13px;
       border-top: 1px solid var(--line);
     }
     footer a { color: var(--ink); font-weight: 700; text-decoration: none; }
+    .section-label {
+      grid-column: 1 / -1;
+      font-family: Georgia, serif;
+      font-size: 18px;
+      margin-top: 8px;
+      padding: 8px 0 4px;
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+    }
     @media (max-width: 520px) {
-      .grid { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: repeat(2, 1fr); gap: 8px; padding: 0 12px; }
+      header { padding: 32px 16px 24px; }
     }
   </style>
 </head>
@@ -128,77 +103,292 @@
 
 <header>
   <h1>Desktop Apps</h1>
-  <p>4 apps leves pra abrir seus sites favoritos em janela limpa, sem abas, sem distrações.</p>
+  <p>Apps leves que abrem seus sites favoritos em janela limpa, sem abas, sem distrações.</p>
+  <div class="search-wrap"><input type="text" id="filtro" placeholder="Buscar app..." oninput="filtrar(this.value)"></div>
+  <div class="stats">37 apps &middot; Open source &middot; Grátis</div>
 </header>
 
-<main class="grid">
-
-  <!-- TikTok — ícone oficial da TikTok -->
-  <div class="card tiktok">
-    <div class="card-icon">
-      <img src="tiktok-icon.png" alt="TikTok" width="32" height="32">
+<main class="grid" id="grid">
+  <div class="section-label">Originais</div>
+  <a class="card" href="https://ryanabcraft.github.io/tiktok-desktop/" target="_blank" data-name="tiktok">
+    <div class="card-icon" style="background:#fe2c55">
+      <img src="https://raw.githubusercontent.com/Ryanabcraft/tiktok-desktop/master/docs/icon.png" alt="TikTok" width="22" height="22">
     </div>
-    <h2>TikTok Desktop</h2>
-    <p>TikTok em janela limpa. Login automático. Multiplataforma.</p>
-    <div class="version"><strong>v1.1.0</strong> — 10.2 MB</div>
-    <div class="card-links">
-      <a class="primary" href="https://github.com/Ryanabcraft/tiktok-desktop/releases/latest/download/TikTok-Setup.exe">⬇ Baixar</a>
-      <a href="https://github.com/Ryanabcraft/tiktok-desktop">GitHub</a>
-      <a href="https://ryanabcraft.github.io/tiktok-desktop/">Site</a>
+    <div class="card-name">TikTok</div>
+    <div class="card-ver">⬇ Baixar</div>
+  </a>
+  <a class="card" href="https://ryanabcraft.github.io/chatgpt-desktop/" target="_blank" data-name="chatgpt">
+    <div class="card-icon" style="background:#10a37f">
+      <img src="https://raw.githubusercontent.com/Ryanabcraft/chatgpt-desktop/master/docs/icon.png" alt="ChatGPT" width="22" height="22">
     </div>
-  </div>
-
-  <!-- ChatGPT — ícone oficial (chat bubble + star) -->
-  <div class="card chatgpt">
-    <div class="card-icon">
-      <img src="chatgpt-icon.png" alt="ChatGPT" width="32" height="32">
+    <div class="card-name">ChatGPT</div>
+    <div class="card-ver">⬇ Baixar</div>
+  </a>
+  <a class="card" href="https://ryanabcraft.github.io/claude-desktop/" target="_blank" data-name="claude">
+    <div class="card-icon" style="background:#c977d6">
+      <img src="https://raw.githubusercontent.com/Ryanabcraft/claude-desktop/master/docs/icon.png" alt="Claude" width="22" height="22">
     </div>
-    <h2>ChatGPT Desktop</h2>
-    <p>ChatGPT em janela limpa. Login automático. Multiplataforma.</p>
-    <div class="version"><strong>v1.1.0</strong> — 9.8 MB</div>
-    <div class="card-links">
-      <a class="primary" href="https://github.com/Ryanabcraft/chatgpt-desktop/releases/latest/download/ChatGPT-Desktop-Setup.exe">⬇ Baixar</a>
-      <a href="https://github.com/Ryanabcraft/chatgpt-desktop">GitHub</a>
-      <a href="https://ryanabcraft.github.io/chatgpt-desktop/">Site</a>
+    <div class="card-name">Claude</div>
+    <div class="card-ver">⬇ Baixar</div>
+  </a>
+  <a class="card" href="https://ryanabcraft.github.io/gemini-desktop/" target="_blank" data-name="gemini">
+    <div class="card-icon" style="background:#1455d9">
+      <img src="https://raw.githubusercontent.com/Ryanabcraft/gemini-desktop/master/docs/icon.png" alt="Gemini" width="22" height="22">
     </div>
-  </div>
-
-  <!-- Claude — ícone oficial (Anthropic symbol) -->
-  <div class="card claude">
-    <div class="card-icon">
-      <svg viewBox="0 0 24 24" fill="white">
-        <path d="M7 4l4 16h2.5L18 4h-2.5l-3 12.5L9.5 4H7z"/>
-      </svg>
+    <div class="card-name">Gemini</div>
+    <div class="card-ver">⬇ Baixar</div>
+  </a>
+  <div class="section-label">🎥 Entretenimento</div>
+  <a class="card" href="https://ryanabcraft.github.io/youtube-desktop/" target="_blank" data-name="youtube">
+    <div class="card-icon" style="background:#ff0000">
+      <img src="https://raw.githubusercontent.com/Ryanabcraft/youtube-desktop/master/docs/icon.png" alt="YouTube" width="22" height="22">
     </div>
-    <h2>Claude Desktop</h2>
-    <p>Claude em janela limpa. Login automático. Multiplataforma.</p>
-    <div class="version"><strong>v1.1.0</strong> — 9.2 MB</div>
-    <div class="card-links">
-      <a class="primary" href="https://github.com/Ryanabcraft/claude-desktop/releases/latest/download/Claude-Desktop-Setup.exe">⬇ Baixar</a>
-      <a href="https://github.com/Ryanabcraft/claude-desktop">GitHub</a>
-      <a href="https://ryanabcraft.github.io/claude-desktop/">Site</a>
+    <div class="card-name">YouTube</div>
+    <div class="card-ver">⬇ Baixar</div>
+  </a>
+  <a class="card" href="https://ryanabcraft.github.io/twitch-desktop/" target="_blank" data-name="twitch">
+    <div class="card-icon" style="background:#9146ff">
+      <img src="https://raw.githubusercontent.com/Ryanabcraft/twitch-desktop/master/docs/icon.png" alt="Twitch" width="22" height="22">
     </div>
-  </div>
-
-  <!-- Gemini — ícone oficial (Google sparkle) -->
-  <div class="card gemini">
-    <div class="card-icon">
-      <img src="gemini.svg" alt="Gemini" width="32" height="32">
+    <div class="card-name">Twitch</div>
+    <div class="card-ver">⬇ Baixar</div>
+  </a>
+  <a class="card" href="https://ryanabcraft.github.io/soundcloud-desktop/" target="_blank" data-name="soundcloud">
+    <div class="card-icon" style="background:#ff5500">
+      <img src="https://raw.githubusercontent.com/Ryanabcraft/soundcloud-desktop/master/docs/icon.png" alt="SoundCloud" width="22" height="22">
     </div>
-    <h2>Gemini Desktop</h2>
-    <p>Google Gemini em janela limpa. Login automático. Multiplataforma.</p>
-    <div class="version"><strong>v1.1.0</strong> — 9.5 MB</div>
-    <div class="card-links">
-      <a class="primary" href="https://github.com/Ryanabcraft/gemini-desktop/releases/latest/download/Google-Gemini-Setup.exe">⬇ Baixar</a>
-      <a href="https://github.com/Ryanabcraft/gemini-desktop">GitHub</a>
-      <a href="https://ryanabcraft.github.io/gemini-desktop/">Site</a>
+    <div class="card-name">SoundCloud</div>
+    <div class="card-ver">⬇ Baixar</div>
+  </a>
+  <a class="card" href="https://ryanabcraft.github.io/vimeo-desktop/" target="_blank" data-name="vimeo">
+    <div class="card-icon" style="background:#1ab7ea">
+      <img src="https://raw.githubusercontent.com/Ryanabcraft/vimeo-desktop/master/docs/icon.png" alt="Vimeo" width="22" height="22">
     </div>
-  </div>
-
+    <div class="card-name">Vimeo</div>
+    <div class="card-ver">⬇ Baixar</div>
+  </a>
+  <div class="section-label">📸 Redes Sociais</div>
+  <a class="card" href="https://ryanabcraft.github.io/instagram-desktop/" target="_blank" data-name="instagram">
+    <div class="card-icon" style="background:#e4405f">
+      <img src="https://raw.githubusercontent.com/Ryanabcraft/instagram-desktop/master/docs/icon.png" alt="Instagram" width="22" height="22">
+    </div>
+    <div class="card-name">Instagram</div>
+    <div class="card-ver">⬇ Baixar</div>
+  </a>
+  <a class="card" href="https://ryanabcraft.github.io/pinterest-desktop/" target="_blank" data-name="pinterest">
+    <div class="card-icon" style="background:#bd081c">
+      <img src="https://raw.githubusercontent.com/Ryanabcraft/pinterest-desktop/master/docs/icon.png" alt="Pinterest" width="22" height="22">
+    </div>
+    <div class="card-name">Pinterest</div>
+    <div class="card-ver">⬇ Baixar</div>
+  </a>
+  <a class="card" href="https://ryanabcraft.github.io/reddit-desktop/" target="_blank" data-name="reddit">
+    <div class="card-icon" style="background:#ff4500">
+      <img src="https://raw.githubusercontent.com/Ryanabcraft/reddit-desktop/master/docs/icon.png" alt="Reddit" width="22" height="22">
+    </div>
+    <div class="card-name">Reddit</div>
+    <div class="card-ver">⬇ Baixar</div>
+  </a>
+  <a class="card" href="https://ryanabcraft.github.io/twitter-desktop/" target="_blank" data-name="x/twitter">
+    <div class="card-icon" style="background:#000000">
+      <img src="https://raw.githubusercontent.com/Ryanabcraft/twitter-desktop/master/docs/icon.png" alt="X/Twitter" width="22" height="22">
+    </div>
+    <div class="card-name">X/Twitter</div>
+    <div class="card-ver">⬇ Baixar</div>
+  </a>
+  <a class="card" href="https://ryanabcraft.github.io/threads-desktop/" target="_blank" data-name="threads">
+    <div class="card-icon" style="background:#000000">
+      <img src="https://raw.githubusercontent.com/Ryanabcraft/threads-desktop/master/docs/icon.png" alt="Threads" width="22" height="22">
+    </div>
+    <div class="card-name">Threads</div>
+    <div class="card-ver">⬇ Baixar</div>
+  </a>
+  <a class="card" href="https://ryanabcraft.github.io/bluesky-desktop/" target="_blank" data-name="bluesky">
+    <div class="card-icon" style="background:#0085ff">
+      <img src="https://raw.githubusercontent.com/Ryanabcraft/bluesky-desktop/master/docs/icon.png" alt="Bluesky" width="22" height="22">
+    </div>
+    <div class="card-name">Bluesky</div>
+    <div class="card-ver">⬇ Baixar</div>
+  </a>
+  <a class="card" href="https://ryanabcraft.github.io/tumblr-desktop/" target="_blank" data-name="tumblr">
+    <div class="card-icon" style="background:#35465c">
+      <img src="https://raw.githubusercontent.com/Ryanabcraft/tumblr-desktop/master/docs/icon.png" alt="Tumblr" width="22" height="22">
+    </div>
+    <div class="card-name">Tumblr</div>
+    <div class="card-ver">⬇ Baixar</div>
+  </a>
+  <div class="section-label">🤖 IA</div>
+  <a class="card" href="https://ryanabcraft.github.io/deepseek-desktop/" target="_blank" data-name="deepseek">
+    <div class="card-icon" style="background:#4f6bf5">
+      <img src="https://raw.githubusercontent.com/Ryanabcraft/deepseek-desktop/master/docs/icon.png" alt="DeepSeek" width="22" height="22">
+    </div>
+    <div class="card-name">DeepSeek</div>
+    <div class="card-ver">⬇ Baixar</div>
+  </a>
+  <a class="card" href="https://ryanabcraft.github.io/perplexity-desktop/" target="_blank" data-name="perplexity">
+    <div class="card-icon" style="background:#2080e8">
+      <img src="https://raw.githubusercontent.com/Ryanabcraft/perplexity-desktop/master/docs/icon.png" alt="Perplexity" width="22" height="22">
+    </div>
+    <div class="card-name">Perplexity</div>
+    <div class="card-ver">⬇ Baixar</div>
+  </a>
+  <a class="card" href="https://ryanabcraft.github.io/huggingchat-desktop/" target="_blank" data-name="huggingchat">
+    <div class="card-icon" style="background:#ffd21e">
+      <img src="https://raw.githubusercontent.com/Ryanabcraft/huggingchat-desktop/master/docs/icon.png" alt="HuggingChat" width="22" height="22">
+    </div>
+    <div class="card-name">HuggingChat</div>
+    <div class="card-ver">⬇ Baixar</div>
+  </a>
+  <a class="card" href="https://ryanabcraft.github.io/characterai-desktop/" target="_blank" data-name="character.ai">
+    <div class="card-icon" style="background:#6c47ff">
+      <img src="https://raw.githubusercontent.com/Ryanabcraft/characterai-desktop/master/docs/icon.png" alt="Character.AI" width="22" height="22">
+    </div>
+    <div class="card-name">Character.AI</div>
+    <div class="card-ver">⬇ Baixar</div>
+  </a>
+  <a class="card" href="https://ryanabcraft.github.io/grok-desktop/" target="_blank" data-name="grok">
+    <div class="card-icon" style="background:#000000">
+      <img src="https://raw.githubusercontent.com/Ryanabcraft/grok-desktop/master/docs/icon.png" alt="Grok" width="22" height="22">
+    </div>
+    <div class="card-name">Grok</div>
+    <div class="card-ver">⬇ Baixar</div>
+  </a>
+  <a class="card" href="https://ryanabcraft.github.io/youcom-desktop/" target="_blank" data-name="you.com">
+    <div class="card-icon" style="background:#7c3aed">
+      <img src="https://raw.githubusercontent.com/Ryanabcraft/youcom-desktop/master/docs/icon.png" alt="You.com" width="22" height="22">
+    </div>
+    <div class="card-name">You.com</div>
+    <div class="card-ver">⬇ Baixar</div>
+  </a>
+  <a class="card" href="https://ryanabcraft.github.io/mistral-desktop/" target="_blank" data-name="mistral chat">
+    <div class="card-icon" style="background:#fbbf24">
+      <img src="https://raw.githubusercontent.com/Ryanabcraft/mistral-desktop/master/docs/icon.png" alt="Mistral Chat" width="22" height="22">
+    </div>
+    <div class="card-name">Mistral Chat</div>
+    <div class="card-ver">⬇ Baixar</div>
+  </a>
+  <a class="card" href="https://ryanabcraft.github.io/pi-desktop/" target="_blank" data-name="pi">
+    <div class="card-icon" style="background:#0a7cff">
+      <img src="https://raw.githubusercontent.com/Ryanabcraft/pi-desktop/master/docs/icon.png" alt="Pi" width="22" height="22">
+    </div>
+    <div class="card-name">Pi</div>
+    <div class="card-ver">⬇ Baixar</div>
+  </a>
+  <div class="section-label">📁 Google Workspace</div>
+  <a class="card" href="https://ryanabcraft.github.io/gdrive-desktop/" target="_blank" data-name="google drive">
+    <div class="card-icon" style="background:#4285f4">
+      <img src="https://raw.githubusercontent.com/Ryanabcraft/gdrive-desktop/master/docs/icon.png" alt="Google Drive" width="22" height="22">
+    </div>
+    <div class="card-name">Google Drive</div>
+    <div class="card-ver">⬇ Baixar</div>
+  </a>
+  <a class="card" href="https://ryanabcraft.github.io/gdocs-desktop/" target="_blank" data-name="google docs">
+    <div class="card-icon" style="background:#4285f4">
+      <img src="https://raw.githubusercontent.com/Ryanabcraft/gdocs-desktop/master/docs/icon.png" alt="Google Docs" width="22" height="22">
+    </div>
+    <div class="card-name">Google Docs</div>
+    <div class="card-ver">⬇ Baixar</div>
+  </a>
+  <a class="card" href="https://ryanabcraft.github.io/gkeep-desktop/" target="_blank" data-name="google keep">
+    <div class="card-icon" style="background:#ffbb00">
+      <img src="https://raw.githubusercontent.com/Ryanabcraft/gkeep-desktop/master/docs/icon.png" alt="Google Keep" width="22" height="22">
+    </div>
+    <div class="card-name">Google Keep</div>
+    <div class="card-ver">⬇ Baixar</div>
+  </a>
+  <a class="card" href="https://ryanabcraft.github.io/gmail-desktop/" target="_blank" data-name="gmail">
+    <div class="card-icon" style="background:#ea4335">
+      <img src="https://raw.githubusercontent.com/Ryanabcraft/gmail-desktop/master/docs/icon.png" alt="Gmail" width="22" height="22">
+    </div>
+    <div class="card-name">Gmail</div>
+    <div class="card-ver">⬇ Baixar</div>
+  </a>
+  <div class="section-label">🛒 Compras</div>
+  <a class="card" href="https://ryanabcraft.github.io/amazon-desktop/" target="_blank" data-name="amazon">
+    <div class="card-icon" style="background:#ff9900">
+      <img src="https://raw.githubusercontent.com/Ryanabcraft/amazon-desktop/master/docs/icon.png" alt="Amazon" width="22" height="22">
+    </div>
+    <div class="card-name">Amazon</div>
+    <div class="card-ver">⬇ Baixar</div>
+  </a>
+  <a class="card" href="https://ryanabcraft.github.io/shopee-desktop/" target="_blank" data-name="shopee">
+    <div class="card-icon" style="background:#ee4d2d">
+      <img src="https://raw.githubusercontent.com/Ryanabcraft/shopee-desktop/master/docs/icon.png" alt="Shopee" width="22" height="22">
+    </div>
+    <div class="card-name">Shopee</div>
+    <div class="card-ver">⬇ Baixar</div>
+  </a>
+  <a class="card" href="https://ryanabcraft.github.io/mercadolivre-desktop/" target="_blank" data-name="mercado livre">
+    <div class="card-icon" style="background:#ffe600">
+      <img src="https://raw.githubusercontent.com/Ryanabcraft/mercadolivre-desktop/master/docs/icon.png" alt="Mercado Livre" width="22" height="22">
+    </div>
+    <div class="card-name">Mercado Livre</div>
+    <div class="card-ver">⬇ Baixar</div>
+  </a>
+  <a class="card" href="https://ryanabcraft.github.io/shein-desktop/" target="_blank" data-name="shein">
+    <div class="card-icon" style="background:#09b2b2">
+      <img src="https://raw.githubusercontent.com/Ryanabcraft/shein-desktop/master/docs/icon.png" alt="Shein" width="22" height="22">
+    </div>
+    <div class="card-name">Shein</div>
+    <div class="card-ver">⬇ Baixar</div>
+  </a>
+  <a class="card" href="https://ryanabcraft.github.io/aliexpress-desktop/" target="_blank" data-name="aliexpress">
+    <div class="card-icon" style="background:#ff4747">
+      <img src="https://raw.githubusercontent.com/Ryanabcraft/aliexpress-desktop/master/docs/icon.png" alt="AliExpress" width="22" height="22">
+    </div>
+    <div class="card-name">AliExpress</div>
+    <div class="card-ver">⬇ Baixar</div>
+  </a>
+  <div class="section-label">📚 Estudo & Dev</div>
+  <a class="card" href="https://ryanabcraft.github.io/wikipedia-desktop/" target="_blank" data-name="wikipedia">
+    <div class="card-icon" style="background:#000000">
+      <img src="https://raw.githubusercontent.com/Ryanabcraft/wikipedia-desktop/master/docs/icon.png" alt="Wikipedia" width="22" height="22">
+    </div>
+    <div class="card-name">Wikipedia</div>
+    <div class="card-ver">⬇ Baixar</div>
+  </a>
+  <a class="card" href="https://ryanabcraft.github.io/medium-desktop/" target="_blank" data-name="medium">
+    <div class="card-icon" style="background:#000000">
+      <img src="https://raw.githubusercontent.com/Ryanabcraft/medium-desktop/master/docs/icon.png" alt="Medium" width="22" height="22">
+    </div>
+    <div class="card-name">Medium</div>
+    <div class="card-ver">⬇ Baixar</div>
+  </a>
+  <a class="card" href="https://ryanabcraft.github.io/devto-desktop/" target="_blank" data-name="dev.to">
+    <div class="card-icon" style="background:#0a0a0a">
+      <img src="https://raw.githubusercontent.com/Ryanabcraft/devto-desktop/master/docs/icon.png" alt="Dev.to" width="22" height="22">
+    </div>
+    <div class="card-name">Dev.to</div>
+    <div class="card-ver">⬇ Baixar</div>
+  </a>
+  <a class="card" href="https://ryanabcraft.github.io/stackoverflow-desktop/" target="_blank" data-name="stack overflow">
+    <div class="card-icon" style="background:#f48024">
+      <img src="https://raw.githubusercontent.com/Ryanabcraft/stackoverflow-desktop/master/docs/icon.png" alt="Stack Overflow" width="22" height="22">
+    </div>
+    <div class="card-name">Stack Overflow</div>
+    <div class="card-ver">⬇ Baixar</div>
+  </a>
+  <a class="card" href="https://ryanabcraft.github.io/github-desktop/" target="_blank" data-name="github">
+    <div class="card-icon" style="background:#181717">
+      <img src="https://raw.githubusercontent.com/Ryanabcraft/github-desktop/master/docs/icon.png" alt="GitHub" width="22" height="22">
+    </div>
+    <div class="card-name">GitHub</div>
+    <div class="card-ver">⬇ Baixar</div>
+  </a>
 </main>
 
+<script>
+function filtrar(val) {
+  val = val.toLowerCase();
+  document.querySelectorAll('.card').forEach(c => {
+    c.style.display = c.dataset.name.includes(val) ? '' : 'none';
+  });
+}
+</script>
+
 <footer>
-  Feito por <a href="https://github.com/Ryanabcraft">Ryanabcraft</a> &mdash; Código aberto &middot; MIT &middot;
+  Feito por <a href="https://github.com/Ryanabcraft">Ryanabcraft</a> &mdash;
+  Código aberto &middot; MIT &middot;
   <a href="https://github.com/Ryanabcraft/desktops">GitHub</a>
 </footer>
 

@@ -6,3 +6,5 @@ dist_installer/
 node_modules/
 *.log
 *.spec
+generate_all.py
+gen_dashboard.py
