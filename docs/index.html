@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Desktop Apps — TikTok, ChatGPT, Claude e Gemini em janela limpa. Open source." />
+  <meta property="og:title" content="Desktop Apps" />
+  <meta property="og:description" content="4 apps desktop pra abrir TikTok, ChatGPT, Claude e Gemini sem abas de navegador." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://ryanabcraft.github.io/desktops/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <title>Desktop Apps — TikTok, ChatGPT, Claude & Gemini</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>" />
+  <style>
+    :root {
+      --ink: #111315;
+      --muted: #5e646c;
+      --line: #d8dde3;
+      --paper: #f6f2e8;
+      --panel: #fffaf0;
+      --shadow: 0 8px 32px rgba(24, 27, 32, 0.12);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      color: var(--ink);
+      background:
+        linear-gradient(90deg, rgba(20, 85, 217, 0.04) 1px, transparent 1px),
+        linear-gradient(rgba(20, 85, 217, 0.04) 1px, transparent 1px),
+        var(--paper);
+      background-size: 42px 42px;
+      font-family: "Segoe UI", Candara, Calibri, sans-serif;
+    }
+    header {
+      text-align: center;
+      padding: 64px 24px 40px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(246, 242, 232, 0.88);
+      backdrop-filter: blur(18px);
+    }
+    header h1 {
+      font-family: Georgia, serif;
+      font-size: clamp(48px, 8vw, 96px);
+      line-height: 0.92;
+      margin-bottom: 12px;
+    }
+    header p {
+      color: var(--muted);
+      font-size: clamp(16px, 2vw, 20px);
+      max-width: 560px;
+      margin: 0 auto;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      max-width: 1280px;
+      margin: 40px auto;
+      padding: 0 24px;
+    }
+    .card {
+      border: 1px solid var(--ink);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: 6px 6px 0 var(--ink);
+      padding: 32px;
+      transition: transform 120ms ease, box-shadow 120ms ease;
+    }
+    .card:hover {
+      transform: translate(3px, 3px);
+      box-shadow: 3px 3px 0 var(--ink);
+    }
+    .card-icon {
+      width: 56px; height: 56px;
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px;
+    }
+    .card-icon svg { width: 32px; height: 32px; }
+    .card h2 { font-family: Georgia, serif; font-size: 26px; margin-bottom: 8px; }
+    .card p { color: var(--muted); font-size: 15px; line-height: 1.5; margin-bottom: 16px; }
+    .card .version {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    .card .version strong { color: var(--ink); }
+    .card-links { display: flex; flex-wrap: wrap; gap: 8px; }
+    .card-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 6px 14px;
+      border: 1px solid var(--ink);
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      color: var(--ink);
+      background: white;
+      transition: background 80ms;
+    }
+    .card-links a:hover { background: #e8e4da; }
+    .card-links a.primary {
+      background: var(--ink);
+      color: white;
+    }
+    .card-links a.primary:hover { background: #2a2d32; }
+    .tiktok .card-icon { background: #fe2c55; }
+    .tiktok .card-icon svg { fill: white; }
+    .chatgpt .card-icon { background: #10a37f; }
+    .chatgpt .card-icon svg { fill: white; }
+    .claude .card-icon { background: #c977d6; }
+    .claude .card-icon svg { fill: white; }
+    .gemini .card-icon { background: #1455d9; }
+    .gemini .card-icon svg { fill: white; }
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      color: var(--muted);
+      font-size: 14px;
+      border-top: 1px solid var(--line);
+    }
+    footer a { color: var(--ink); font-weight: 700; text-decoration: none; }
+    @media (max-width: 520px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Desktop Apps</h1>
+  <p>4 apps leves pra abrir seus sites favoritos em janela limpa, sem abas, sem distrações.</p>
+</header>
+
+<main class="grid">
+
+  <!-- TikTok -->
+  <div class="card tiktok">
+    <div class="card-icon">
+      <svg viewBox="0 0 512 512">
+        <path d="M412.19 118.66a109.27 109.27 0 01-9.45-5.5 132.87 132.87 0 01-24.27-20.62c-18.1-20.71-24.86-41.72-27.35-56.43h.1C349.14 23.9 350 16 350.13 16h-82.44v318.78c0 4.28 0 8.51-.18 12.69 0 .52-.05 1-.08 1.56 0 .23 0 .47-.05.71v.18a70.3 70.3 0 01-2.39 14.56c-5.47 21-22.49 42.08-51.56 47.92-4.31.86-8.66 1.31-13 1.32a54.27 54.27 0 01-8.63-.6c-29.76-4.09-50.87-26.52-55.35-51.52-5.44-30.37 12.37-57 36.78-64.76 5.57-1.77 11.43-2.7 17.35-2.7a70.19 70.19 0 0111.16.87v-83.94c-3.56-.38-7.11-.6-10.65-.73-21.19-.76-42.16 3.9-61.73 13.79-42.69 21.57-70.09 65.1-70.09 113.56 0 48.5 27.4 92 70.09 113.56 42.69 21.56 93.58 21.56 136.27 0 42.69-21.57 70.09-65.06 70.09-113.56v-222.9a205.35 205.35 0 0044.42 28.86 206.84 206.84 0 0034.22 14.17z"/>
+      </svg>
+    </div>
+    <h2>TikTok Desktop</h2>
+    <p>TikTok em janela limpa. Login automático. Multiplataforma.</p>
+    <div class="version"><strong>v1.1.0</strong> — 10.2 MB</div>
+    <div class="card-links">
+      <a class="primary" href="https://github.com/Ryanabcraft/tiktok-desktop/releases/latest/download/TikTok-Setup.exe">⬇ Baixar</a>
+      <a href="https://github.com/Ryanabcraft/tiktok-desktop">GitHub</a>
+      <a href="https://ryanabcraft.github.io/tiktok-desktop/">Site</a>
+    </div>
+  </div>
+
+  <!-- ChatGPT -->
+  <div class="card chatgpt">
+    <div class="card-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+      </svg>
+    </div>
+    <h2>ChatGPT Desktop</h2>
+    <p>ChatGPT em janela limpa. Login automático. Multiplataforma.</p>
+    <div class="version"><strong>v1.1.0</strong> — 9.8 MB</div>
+    <div class="card-links">
+      <a class="primary" href="https://github.com/Ryanabcraft/chatgpt-desktop/releases/latest/download/ChatGPT-Desktop-Setup.exe">⬇ Baixar</a>
+      <a href="https://github.com/Ryanabcraft/chatgpt-desktop">GitHub</a>
+      <a href="https://ryanabcraft.github.io/chatgpt-desktop/">Site</a>
+    </div>
+  </div>
+
+  <!-- Claude -->
+  <div class="card claude">
+    <div class="card-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10"/>
+        <path d="M12 6v6l4 2"/>
+      </svg>
+    </div>
+    <h2>Claude Desktop</h2>
+    <p>Claude em janela limpa. Login automático. Multiplataforma.</p>
+    <div class="version"><strong>v1.1.0</strong> — 9.2 MB</div>
+    <div class="card-links">
+      <a class="primary" href="https://github.com/Ryanabcraft/claude-desktop/releases/latest/download/Claude-Desktop-Setup.exe">⬇ Baixar</a>
+      <a href="https://github.com/Ryanabcraft/claude-desktop">GitHub</a>
+      <a href="https://ryanabcraft.github.io/claude-desktop/">Site</a>
+    </div>
+  </div>
+
+  <!-- Gemini -->
+  <div class="card gemini">
+    <div class="card-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 2L15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2z"/>
+      </svg>
+    </div>
+    <h2>Gemini Desktop</h2>
+    <p>Google Gemini em janela limpa. Login automático. Multiplataforma.</p>
+    <div class="version"><strong>v1.1.0</strong> — 9.5 MB</div>
+    <div class="card-links">
+      <a class="primary" href="https://github.com/Ryanabcraft/gemini-desktop/releases/latest/download/Google-Gemini-Setup.exe">⬇ Baixar</a>
+      <a href="https://github.com/Ryanabcraft/gemini-desktop">GitHub</a>
+      <a href="https://ryanabcraft.github.io/gemini-desktop/">Site</a>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  Feito por <a href="https://github.com/Ryanabcraft">Ryanabcraft</a> &mdash; Código aberto &middot; MIT &middot;
+  <a href="https://github.com/Ryanabcraft/desktops">GitHub</a>
+</footer>
+
+</body>
+</html>
